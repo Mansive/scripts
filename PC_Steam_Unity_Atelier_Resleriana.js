@@ -136,6 +136,7 @@ function readString(address) {
 
   return text;
 }
+
 const handler = genericHandler;
 
 /** @param {string} text */
@@ -173,7 +174,7 @@ function textSetControl(text, set, list = false) {
   set.add(text);
 }
 
-/** @type {HookHandler} */
+/** @type {HookHandler & {list: boolean}} */
 function positionTopHandler(text, list = false) {
   bottomTexts.clear();
 
@@ -183,7 +184,7 @@ function positionTopHandler(text, list = false) {
   return text;
 }
 
-/** @type {HookHandler} */
+/** @type {HookHandler & {list: boolean}} */
 function positionMiddleHandler(text, list = false) {
   bottomTexts.clear();
 
@@ -193,7 +194,7 @@ function positionMiddleHandler(text, list = false) {
   return text;
 }
 
-/** @type {HookHandler} */
+/** @type {HookHandler & {list: boolean}} */
 function positionBottomHandler(text, list = false) {
   textSetControl(text, bottomTexts, list);
   orderedHandler();
@@ -201,7 +202,7 @@ function positionBottomHandler(text, list = false) {
   return text;
 }
 
-/** @type {HookHandler} */
+/** @type {HookHandler & {list: boolean}} */
 function positionDeepHandler(text, list = false) {
   textSetControl(text, deepTexts, list);
   orderedHandler();
